@@ -10,7 +10,8 @@ class App extends Component {
         <header>
           <div className="container">
             <div className="title">
-              <h2 lang="ko">바이슬림</h2>
+              <h1 lang="ko">바이슬림</h1>
+              <span className="fa fa-check-circle-o fa-lg" aria-hidden="true"></span>
             </div>
             <nav>
               <ul lang="ko">
@@ -18,14 +19,17 @@ class App extends Component {
                 <li>인기순</li>
                 <li>저가순</li>
               </ul>
-              <div lang="ko" className="search-item">
+              <div className="search-item">
+                <span className="fa fa-search" aria-hidden="true"></span>
                 상품검색
               </div>
             </nav>
           </div>
         </header>
         <main>
-          <ShopItemList itemList={shopItems.items}/>
+          <div className="container">
+            <ShopItemList itemList={shopItems.items}/>
+          </div>
         </main>
       </div>
     );

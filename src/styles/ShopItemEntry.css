@@ -1,3 +1,43 @@
 .shopitementry-component {
-
+  display: inline-block;
+  width: 250px;
+  height: 100%;
+  margin: 20px;
+  border: 1px solid #dbdbdb;
 }
+
+.item-picture {
+  width: 250px;
+  height: 370px;
+  border-bottom: 1px solid #dbdbdb;
+}
+
+.item-title {
+  color: #939393;
+  font-size: 16px;
+  padding: 10px;
+}
+
+.item-price {
+  color: #222222;
+  font-size: 16px;
+  font-weight: 600;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #dbdbdb;
+}
+
+.item-pin {
+  color: #bcbaba;
+  font-size: 16px;
+  padding: 10px 0;
+}
+
+.item-pin:hover {
+  color: #A51C2F;
+  cursor: pointer;
+}
+
+.item-pin .fa {
+  margin-right: 5px;
+}
+

@@ -8,6 +8,23 @@
   text-align: center;
 }
 
+.title h1 {
+  display: inline-block;
+}
+
+.title .fa {
+  float: right;
+  line-height: 60px;
+}
+
+.title .fa-check-circle {
+  color: #A51C2F;
+}
+
+.title .fa:hover {
+  cursor: pointer;
+}
+
 header {
   position: fixed;
   width: 100%;
@@ -26,6 +43,10 @@ header ul li {
   margin-left: 20px;
 }
 
+header ul li:hover {
+  cursor: pointer;
+}
+
 header nav .search-item {
   display: inline-block;
   float: right;
@@ -34,6 +55,19 @@ header nav .search-item {
   font-weight: 300;
   line-height: 40px;
   margin-right: 20px;
+}
+
+header nav .search-item .fa {
+  margin-right: 5px;
+}
+
+header nav .search-item .fa:hover {
+  cursor: pointer;
+}
+
+main .container {
+  padding: 0 10px;
+  text-align: center;
 }
 
 @media screen and (max-width: 730px) {
