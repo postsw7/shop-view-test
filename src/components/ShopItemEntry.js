@@ -4,7 +4,7 @@ import '../styles/ShopItemEntry.css';
 class ShopItemEntry extends Component {
   render() {
     return (
-      <div className="shopitementry-component">
+      <div className="item-entry">
         <img className= "item-picture" src={this.props.item.image} alt="no image"/>
         <p className="item-title" lang="ko">
           {this.props.item.title}
