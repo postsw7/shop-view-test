@@ -7,7 +7,9 @@ class ShopItemList extends Component {
     return (
       <div className="shopitemlist-component">
         This is Shop List
-        <ShopItemEntry />
+        {this.props.itemList.map((item, i) =>
+          <ShopItemEntry item={item} key={i}/>
+        )}
       </div>
     );
   }

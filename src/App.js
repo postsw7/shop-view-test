@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 import ShopItemList from './components/ShopItemList';
+import shopItems from './data/shopItemMockData';
 
 class App extends Component {
   render() {
@@ -24,7 +25,7 @@ class App extends Component {
           </div>
         </header>
         <main>
-          <ShopItemList />
+          <ShopItemList itemList={shopItems.items}/>
         </main>
       </div>
     );

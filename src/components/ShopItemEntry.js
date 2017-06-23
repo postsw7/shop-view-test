@@ -5,7 +5,7 @@ class ShopItemEntry extends Component {
   render() {
     return (
       <div className="shopitementry-component">
-        This is Shop Entry
+        <p>{this.props.item.title}</p>
       </div>
     );
   }
