@@ -65,9 +65,20 @@ header nav .search-item .fa:hover {
   cursor: pointer;
 }
 
+header nav .search-item input {
+  background: transparent;
+  border: none;
+  font-size: 24px;
+  width: 150px;
+}
+
 main .container {
   padding: 0 10px;
   text-align: center;
+}
+
+.select-nav {
+  color: #A51C2F;
 }
 
 @media screen and (max-width: 730px) {
@@ -77,6 +88,11 @@ main .container {
 
   header nav .search-item {
     font-size: 20px;
+  }
+
+  header nav .search-item input {
+    font-size: 20px;
+    width: 120px;
   }
 }
 
@@ -88,6 +104,11 @@ main .container {
   header nav .search-item {
     font-size: 14px;
   }
+
+  header nav .search-item input {
+    font-size: 14px;
+    width: 60px;
+  }
 }
 
 @media screen and (max-width: 340px) {
@@ -97,5 +118,10 @@ main .container {
 
   header nav .search-item {
     font-size: 10px;
+  }
+
+  header nav .search-item input {
+    font-size: 10px;
+    width: 40px;
   }
 }

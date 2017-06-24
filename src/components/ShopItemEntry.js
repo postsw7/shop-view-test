@@ -3,6 +3,29 @@ import '../styles/ShopItemEntry.css';
 import paymentImage from '../images/lookpinPay.png';
 
 class ShopItemEntry extends Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      isPinned: false
+    }
+  }
+
+  onClickPin = (e) => {
+    let target = e.target;
+    if (e.target.className.includes('fa')) {
+      target = e.target.parentElement;
+    }
+    if (!this.state.isPinned) {
+      target.classList.add('item-pinned');
+    } else {
+      target.classList.remove('item-pinned');
+    }
+    this.setState((prevState) => ({
+      isPinned: !prevState.isPinned
+    }));
+  }
+
   render() {
     return (
       <div className="item-entry">
@@ -14,7 +37,9 @@ class ShopItemEntry extends Component {
         <p className="item-price" lang="ko">
           {this.props.item.price}원
         </p>
-        <div className="item-pin">
+        <div className="item-pin" onClick={(e) => {
+          this.onClickPin(e);
+        }}>
           <span className="fa fa-thumb-tack fa-lg" aria-hidden="true"></span>
           핀하기
         </div>

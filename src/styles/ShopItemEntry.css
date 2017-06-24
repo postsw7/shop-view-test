@@ -48,6 +48,10 @@
   margin-right: 5px;
 }
 
+.item-pinned {
+  color: #A51C2F;
+}
+
 @media screen and (max-width: 895px) {
   .item-entry {
     width: 200px;
