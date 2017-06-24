@@ -5,6 +5,14 @@ import shopItems from './data/shopItemMockData';
 
 class App extends Component {
 
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      items: shopItems.items
+    }
+  }
+
   onClickTitle = (e) => {
     if (e.target.className.includes('-o')) {
       e.target.classList.remove('fa-check-circle-o');
@@ -25,6 +33,22 @@ class App extends Component {
     e.target.classList.add('select-nav');
   }
 
+  handleSearch = (e, searchResult) => {
+    if (e.key === 'Enter') {
+      this.setState({
+        items: shopItems.items.filter(item => {
+          return item.title.includes(e.target.value);
+        })
+      });
+    } else if (searchResult) {
+      this.setState({
+        items: shopItems.items.filter(item => {
+          return item.title.includes(searchResult);
+        })
+      });
+    }
+  }
+
   render () {
     return (
       <div>
@@ -41,15 +65,15 @@ class App extends Component {
                 <li>저가순</li>
               </ul>
               <div className="search-item">
-                <span className="fa fa-search" aria-hidden="true"></span>
-                <input type="text" placeholder="상품검색"></input>
+                <span className="fa fa-search" aria-hidden="true" onClick={(e) => { this.handleSearch(e, e.target.nextElementSibling.value); }}></span>
+                <input type="text" placeholder="상품검색" onKeyPress={(e) => { this.handleSearch(e); }}></input>
               </div>
             </nav>
           </div>
         </header>
         <main>
           <div className="container">
-            <ShopItemList itemList={shopItems.items}/>
+            <ShopItemList itemList={this.state.items}/>
           </div>
         </main>
       </div>
