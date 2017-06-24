@@ -1,11 +1,13 @@
 import React, { Component } from 'react';
 import '../styles/ShopItemEntry.css';
+import paymentImage from '../images/lookpinPay.png';
 
 class ShopItemEntry extends Component {
   render() {
     return (
       <div className="item-entry">
         <img className= "item-picture" src={this.props.item.image} alt="no image"/>
+        <img className="lookpin-payment" src={paymentImage} alt="룩핀 결제"/>
         <p className="item-title" lang="ko">
           {this.props.item.title}
         </p>

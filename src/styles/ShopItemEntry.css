@@ -1,5 +1,6 @@
 .item-entry {
   display: inline-block;
+  position: relative;
   width: 250px;
   height: 100%;
   margin: 20px;
@@ -10,6 +11,12 @@
   width: 250px;
   height: 370px;
   border-bottom: 1px solid #dbdbdb;
+}
+
+.lookpin-payment {
+  position: absolute;
+  top: 0;
+  left: 0;
 }
 
 .item-title {
@@ -50,13 +57,6 @@
   .item-picture {
     width: 200px;
     height: 320px
-  }
-
-  .lookpin-payment {
-    top: 0px;
-    left: 0px;
-    width: 40px;
-    height: 40px;
   }
 
   .item-title {
@@ -102,13 +102,6 @@
     height: 170px
   }
 
-  .lookpin-payment {
-    top: 0px;
-    left: 0px;
-    width: 40px;
-    height: 40px;
-  }
-
   .item-title {
     font-size: 12px;
   }
@@ -134,10 +127,8 @@
   }
 
   .lookpin-payment {
-    top: 0px;
-    left: 0px;
-    width: 40px;
-    height: 40px;
+    width: 30px;
+    height: 30px;
   }
 
   .item-title {
@@ -162,12 +153,5 @@
   .item-picture {
     width: 90px;
     height: 150px
-  }
-
-  .lookpin-payment {
-    top: 0px;
-    left: 0px;
-    width: 40px;
-    height: 40px;
   }
 }
