@@ -45,11 +45,9 @@ table {
     border-collapse: collapse;
     border-spacing: 0;
 }
+/**** End Reset CSS ****/
 
+/**** Styles ****/
 body {
-  font-family: 'Roboto', sans-serif;
-}
-
-:lang(ko) {
   font-family: 'Noto Sans KR', sans-serif;
 }
