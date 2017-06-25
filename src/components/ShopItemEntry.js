@@ -31,10 +31,10 @@ class ShopItemEntry extends Component {
       <div className="item-entry">
         <img className= "item-picture" src={this.props.item.image} alt="룩핀 아이템"/>
         <img className="lookpin-payment" src={paymentImage} alt="룩핀 결제"/>
-        <p className="item-title" lang="ko">
+        <p className="item-title">
           {this.props.item.title}
         </p>
-        <p className="item-price" lang="ko">
+        <p className="item-price">
           {this.props.item.price}원
         </p>
         <div className="item-pin" onClick={(e) => {
