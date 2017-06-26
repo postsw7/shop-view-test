@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import '../styles/ShopItemEntry.css';
 import paymentImage from '../images/lookpinPay.png';
 
@@ -36,10 +37,17 @@ class ShopItemEntry extends Component {
   }
 }
 
-ShopItemEntry.displayName = 'ShopItemEntry';
-
-// Uncomment properties you need
-// ShopItemEntry.propTypes = {};
-// ShopItemEntry.defaultProps = {};
+ShopItemEntry.propTypes = {
+  item: PropTypes.shape({
+    id: PropTypes.number.isRequired,
+    title: PropTypes.string.isRequired,
+    price: PropTypes.string.isRequired,
+    image: PropTypes.string.isRequired,
+    purchase: PropTypes.number,
+    date: PropTypes.string,
+    isPinned: PropTypes.bool
+  }).isRequired,
+  handleClickPin: PropTypes.func.isRequired
+};
 
 export default ShopItemEntry;

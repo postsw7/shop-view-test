@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import '../styles/ShopItemList.css';
 import ShopItemEntry from './ShopItemEntry';
 
@@ -79,10 +80,12 @@ class ShopItemList extends Component {
   }
 }
 
-ShopItemList.displayName = 'ShopItemList';
-
-// Uncomment properties you need
-// ShopItemList.propTypes = {};
-// ShopItemList.defaultProps = {};
+ShopItemList.propTypes = {
+  itemList: PropTypes.arrayOf(PropTypes.object).isRequired,
+  sortFilter: PropTypes.string.isRequired,
+  searchValue: PropTypes.string.isRequired,
+  handleClickItem: PropTypes.func.isRequired,
+  handleClickPin: PropTypes.func.isRequired
+};
 
 export default ShopItemList;

@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import '../styles/Modal.css';
 
 class Modal extends Component {
@@ -28,6 +29,19 @@ class Modal extends Component {
       </div>
     );
   }
+}
+
+Modal.propTypes = {
+  item: PropTypes.shape({
+    id: PropTypes.number,
+    title: PropTypes.string.isRequired,
+    price: PropTypes.string.isRequired,
+    image: PropTypes.string.isRequired,
+    purchase: PropTypes.number.isRequired,
+    date: PropTypes.string.isRequired,
+    isPinned: PropTypes.bool.isRequired
+  }).isRequired,
+  handleCloseModal: PropTypes.func.isRequired
 }
 
 export default Modal;

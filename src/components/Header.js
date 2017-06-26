@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import '../styles/Header.css';
 
 class Header extends Component {
@@ -64,10 +65,9 @@ class Header extends Component {
   }
 }
 
-Header.displayName = 'Header';
-
-// Uncomment properties you need
-// Header.propTypes = {};
-// Header.defaultProps = {};
+Header.propTypes = {
+  handleSortItems: PropTypes.func.isRequired,
+  handleSearchItems: PropTypes.func.isRequired
+};
 
 export default Header;
