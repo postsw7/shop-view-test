@@ -72,6 +72,10 @@ header nav .search-item input {
   width: 150px;
 }
 
+header nav .search-item input:focus {
+  outline-color: #939393;
+}
+
 main .container {
   padding: 0 10px;
   text-align: center;
@@ -92,11 +96,26 @@ main .container {
 
   header nav .search-item input {
     font-size: 20px;
-    width: 120px;
+    width: 100px;
   }
 }
 
-@media screen and (max-width: 412px) {
+@media screen and (max-width: 530px) {
+  header ul li {
+    font-size: 16px;
+  }
+
+  header nav .search-item {
+    font-size: 16px;
+  }
+
+  header nav .search-item input {
+    font-size: 16px;
+    width: 80px;
+  }
+}
+
+@media screen and (max-width: 445px) {
   header ul li {
     font-size: 14px;
   }

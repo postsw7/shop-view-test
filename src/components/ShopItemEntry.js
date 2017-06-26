@@ -3,32 +3,22 @@ import '../styles/ShopItemEntry.css';
 import paymentImage from '../images/lookpinPay.png';
 
 class ShopItemEntry extends Component {
-  constructor(props) {
-    super(props);
 
-    this.state = {
-      isPinned: false
+  onClickPin (e) {
+    let el = e.target;
+    if (el.className.includes('fa')) {
+      el = e.target.parentElement;
     }
-  }
-
-  onClickPin = (e) => {
-    let target = e.target;
-    if (e.target.className.includes('fa')) {
-      target = e.target.parentElement;
-    }
-    if (!this.state.isPinned) {
-      target.classList.add('item-pinned');
+    if (!this.props.item.isPinned) {
+      this.props.handleClickPin(this.props.item.id, true);
     } else {
-      target.classList.remove('item-pinned');
+      this.props.handleClickPin(this.props.item.id, false);
     }
-    this.setState((prevState) => ({
-      isPinned: !prevState.isPinned
-    }));
   }
 
   render() {
     return (
-      <div className="item-entry">
+      <div className="item-entry" data-id={this.props.item.id}>
         <img className= "item-picture" src={this.props.item.image} alt="룩핀 아이템"/>
         <img className="lookpin-payment" src={paymentImage} alt="룩핀 결제"/>
         <p className="item-title">
@@ -37,9 +27,7 @@ class ShopItemEntry extends Component {
         <p className="item-price">
           {this.props.item.price}원
         </p>
-        <div className="item-pin" onClick={(e) => {
-          this.onClickPin(e);
-        }}>
+        <div className={this.props.item.isPinned ? 'item-pin item-pinned' : 'item-pin'} onClick={this.onClickPin.bind(this)}>
           <span className="fa fa-thumb-tack fa-lg" aria-hidden="true"></span>
           핀하기
         </div>

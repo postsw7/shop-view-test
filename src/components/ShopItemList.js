@@ -13,7 +13,6 @@ class ShopItemList extends Component {
   }
 
   componentWillReceiveProps(nextProps) {
-    console.log('NEXTPROPS:::', nextProps);
     if (nextProps.sortFilter === '인기순') {
       let itemList = this.props.itemList.slice();
       this.setState({
@@ -35,15 +34,14 @@ class ShopItemList extends Component {
           return prev.id - item.id;
         })
       })
-    } else if (nextProps.searchFilter === 'enter') {
-      console.log('전달!!',nextProps.searchValue)
+    } else if (nextProps.sortFilter === '찜목록') {
       let itemList = this.props.itemList.slice();
       this.setState({
         items: itemList.filter(item => {
-          return item.title.includes(nextProps.searchValue);
+          return item.isPinned;
         })
       });
-    } else if (nextProps.searchFilter === 'click') {
+    } else if (nextProps.searchValue) {
       let itemList = this.props.itemList.slice();
       this.setState({
         items: itemList.filter(item => {
@@ -53,11 +51,28 @@ class ShopItemList extends Component {
     }
   }
 
+  findAncestor (el, classname) {
+    do {
+      el = el.parentElement;
+    } while (el && !el.classList.contains(classname));
+    return el;
+  }
+
+  onClickEntry (e) {
+    if (e.target !== e.currentTarget && !e.target.className.includes('pin') && !this.findAncestor(e.target, 'item-pin')) {
+      let itemId = +this.findAncestor(e.target, 'item-entry').dataset.id;
+      this.props.handleClickItem(itemId);
+    } else if (e.target.className === 'lookpin-payment') {
+      let itemId = +this.findAncestor(e.target, 'item-entry').dataset.id;
+      this.props.handleClickItem(itemId);
+    }
+  }
+
   render() {
     return (
-      <div className="shopitemlist-component">
+      <div className="item-list" onClick={this.onClickEntry.bind(this)}>
         {this.state.items.map((item, i) =>
-          <ShopItemEntry item={item} key={i}/>
+          <ShopItemEntry item={item} key={i} handleClickPin={this.props.handleClickPin}/>
         )}
       </div>
     );

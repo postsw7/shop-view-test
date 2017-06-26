@@ -21,21 +21,21 @@ class Header extends Component {
     })
     e.target.classList.add('select-nav');
     let filterText = e.target.textContent;
-    this.props.handleItems('sortItem', filterText);
+    this.props.handleSortItems(filterText);
   }
 
   handleEnterSearch (e) {
     if (e.key === 'Enter') {
-      let filterText = 'enter';
       let searchResult = e.target.value;
-      this.props.handleItems('searchItem', filterText, searchResult);
+      e.target.value = '';
+      this.props.handleSearchItems(searchResult);
     }
   }
 
   handleClickSearch (e) {
-    let filterText = 'click';
     let searchResult = e.target.nextElementSibling.value;
-    this.props.handleItems('searchItem', filterText, searchResult);
+    e.target.nextElementSibling.value = '';
+    this.props.handleSearchItems(searchResult);
   }
 
   render() {
@@ -51,6 +51,7 @@ class Header extends Component {
               <li className="select-nav">신상품</li>
               <li>인기순</li>
               <li>저가순</li>
+              <li>찜목록</li>
             </ul>
             <div className="search-item">
               <span className="fa fa-search" aria-hidden="true" onClick={this.handleClickSearch.bind(this)}></span>
