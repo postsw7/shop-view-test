@@ -1,15 +1,29 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
-import { shallow, mount, render } from 'enzyme';
+import { shallow } from 'enzyme';
 import App from '../App';
 import { items } from '../data/shopItemMockData';
-import Header from '../components/Header';
-
 
 describe ('<App />', () => {
+
   it ('should render without crashing', () => {
-    const div = document.createElement('div');
-    ReactDOM.render(<App />, div);
+    const wrapper = shallow(<App />);
+    expect(wrapper).toBeDefined();
+  });
+
+  it ('should render Header component', () => {
+    const wrapper = shallow(<App />);
+    expect(wrapper.find('Header').length).toBe(1);
+  });
+
+  it ('should render ShopItemList component', () => {
+    const wrapper = shallow(<App />);
+    expect(wrapper.find('ShopItemList').length).toBe(1);
+  });
+
+  it ('should render Modal component', () => {
+    const wrapper = shallow(<App />);
+    wrapper.setState({ showModal: true, itemId:1 });
+    expect(wrapper.find('Modal').length).toBe(1);
   });
 
   it ('should render main element', () => {
@@ -35,5 +49,6 @@ describe ('<App />', () => {
     expect(wrapper.state().items.length).toBe(100);
     expect(wrapper.state().items).toBe(items);
   });
+
 });
 

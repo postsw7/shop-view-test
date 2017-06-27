@@ -65,6 +65,8 @@ class Header extends Component {
   }
 }
 
+Header.displayName = 'Header';
+
 Header.propTypes = {
   handleSortItems: PropTypes.func.isRequired,
   handleSearchItems: PropTypes.func.isRequired

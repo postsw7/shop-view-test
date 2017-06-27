@@ -108,4 +108,6 @@ class App extends Component {
   }
 }
 
+App.displayName = 'App';
+
 export default App;

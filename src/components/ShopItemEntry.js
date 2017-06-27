@@ -37,6 +37,8 @@ class ShopItemEntry extends Component {
   }
 }
 
+ShopItemEntry.displayName = 'ShopItemEntry';
+
 ShopItemEntry.propTypes = {
   item: PropTypes.shape({
     id: PropTypes.number.isRequired,

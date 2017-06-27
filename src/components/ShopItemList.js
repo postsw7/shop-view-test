@@ -80,6 +80,8 @@ class ShopItemList extends Component {
   }
 }
 
+ShopItemList.displayName = 'ShopItemList';
+
 ShopItemList.propTypes = {
   itemList: PropTypes.arrayOf(PropTypes.object).isRequired,
   sortFilter: PropTypes.string.isRequired,
