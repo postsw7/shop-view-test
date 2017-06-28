@@ -62,7 +62,11 @@ class ShopItemList extends Component {
   onClickEntry (e) {
     if (e.target !== e.currentTarget && !e.target.className.includes('pin') && !this.findAncestor(e.target, 'item-pin')) {
       let itemId = +this.findAncestor(e.target, 'item-entry').dataset.id;
-      this.props.handleClickItem(itemId);
+      if (this.props.isEditing) {
+        this.props.handleSelectedEditItem(itemId)
+      } else {
+        this.props.handleClickItem(itemId)
+      }
     } else if (e.target.className === 'lookpin-payment') {
       let itemId = +this.findAncestor(e.target, 'item-entry').dataset.id;
       this.props.handleClickItem(itemId);
@@ -73,7 +77,7 @@ class ShopItemList extends Component {
     return (
       <div className="item-list" onClick={this.onClickEntry.bind(this)}>
         {this.state.items.map((item, i) =>
-          <ShopItemEntry item={item} key={i} handleClickPin={this.props.handleClickPin}/>
+          <ShopItemEntry item={item} key={i} handleClickPin={this.props.handleClickPin} isEditing={this.props.isEditing}/>
         )}
       </div>
     );
@@ -87,7 +91,9 @@ ShopItemList.propTypes = {
   sortFilter: PropTypes.string.isRequired,
   searchValue: PropTypes.string.isRequired,
   handleClickItem: PropTypes.func.isRequired,
-  handleClickPin: PropTypes.func.isRequired
+  handleClickPin: PropTypes.func.isRequired,
+  handleSelectedEditItem: PropTypes.func.isRequired,
+  isEditing: PropTypes.bool.isRequired
 };
 
 export default ShopItemList;

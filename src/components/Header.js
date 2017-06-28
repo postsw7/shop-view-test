@@ -39,6 +39,18 @@ class Header extends Component {
     this.props.handleSearchItems(searchResult);
   }
 
+  handleEdit (e) {
+    if (!e.target.classList.contains('item-remove')) {
+      e.target.classList.add('item-remove');
+      e.target.textContent = '멈추기';
+      this.props.handleEditItem(true);
+    } else {
+      e.target.classList.remove('item-remove');
+      e.target.textContent = '흔들기';
+      this.props.handleEditItem(false);
+    }
+  }
+
   render() {
     return (
       <header>
@@ -53,7 +65,11 @@ class Header extends Component {
               <li>인기순</li>
               <li>저가순</li>
               <li>찜목록</li>
+              <li className="item-edit" onClick={this.handleEdit.bind(this)}>
+                흔들기
+              </li>
             </ul>
+
             <div className="search-item">
               <span className="fa fa-search" aria-hidden="true" onClick={this.handleClickSearch.bind(this)}></span>
               <input type="text" placeholder="상품검색" onKeyPress={this.handleEnterSearch.bind(this)}></input>
@@ -69,7 +85,8 @@ Header.displayName = 'Header';
 
 Header.propTypes = {
   handleSortItems: PropTypes.func.isRequired,
-  handleSearchItems: PropTypes.func.isRequired
+  handleSearchItems: PropTypes.func.isRequired,
+  handleEditItem: PropTypes.func.isRequired
 };
 
 export default Header;

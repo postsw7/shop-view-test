@@ -14,9 +14,25 @@ class App extends Component {
       sortFilter: '',
       searchValue: '',
       showModal: false,
-      itemId: 0
+      itemId: 0,
+      isEditing: false,
+      editItems: []
     }
 
+  }
+
+  handleEditItem (editStatus) {
+    this.setState({
+      isEditing: editStatus
+    });
+  }
+
+  handleSelectedEditItem (id) {
+    if (this.state.editItems.indexOf(id) === -1) {
+      this.setState({
+        editItems: this.state.editItems.concat(id)
+      });
+    }
   }
 
   handleSortItems (filterText) {
@@ -34,10 +50,12 @@ class App extends Component {
   }
 
   handleClickItem (id) {
-    this.setState({
-      itemId: id,
-      showModal: true
-    });
+    if (!this.state.isEditing) {
+      this.setState({
+        itemId: id,
+        showModal: true
+      });
+    }
   }
 
   handleCloseModal () {
@@ -83,6 +101,7 @@ class App extends Component {
         <Header
           handleSortItems={this.handleSortItems.bind(this)}
           handleSearchItems={this.handleSearchItems.bind(this)}
+          handleEditItem={this.handleEditItem.bind(this)}
         />
         <main>
           <div className="container">
@@ -92,9 +111,11 @@ class App extends Component {
               searchValue={this.state.searchValue}
               handleClickItem={this.handleClickItem.bind(this)}
               handleClickPin={this.handleClickPin.bind(this)}
+              isEditing={this.state.isEditing}
+              handleSelectedEditItem={this.handleSelectedEditItem.bind(this)}
             />
             {
-              this.state.showModal ?
+              !this.state.isEditing && this.state.showModal ?
                 <Modal
                   item={selectedItem()}
                   handleCloseModal={this.handleCloseModal.bind(this)}

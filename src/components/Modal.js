@@ -11,7 +11,7 @@ class Modal extends Component {
 
   render () {
     return (
-      <div className="modal" onClick={this.handleClose.bind(this)}>
+      <div className="modal" onClick={this.handleClose.bind(this)} >
         <div className="modal-content">
           <div className={this.props.item.isPinned ? 'modal-header modal-pinned' : 'modal-header'}>
             <h2>{this.props.item.title}</h2>

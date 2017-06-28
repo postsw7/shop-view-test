@@ -5,11 +5,18 @@
   height: 100%;
   margin: 20px;
   border: 1px solid #dbdbdb;
+  transition-property: box-shadow;
+  transition-duration: 1s;
+  transition-timing-function: ease-out;
 }
 
 .item-entry:hover {
   cursor: pointer;
   box-shadow: 0 5px 15px rgba(0,0,0,.5);
+}
+
+.item-rattle:hover {
+  animation: rattle 0.1s infinite alternate;
 }
 
 .item-picture {
@@ -54,6 +61,14 @@
 
 .item-pinned {
   color: #A51C2F;
+}
+
+@keyframes rattle {
+  0% { transform: translateX(-2px); }
+  25% { transform: translateY(-2px) rotate(-1deg); }
+  50% { transform: translateX(1px); }
+  75% { transform: translateY(1px) rotate(1deg); }
+  100% { transform: translateY(-2px); }
 }
 
 @media screen and (max-width: 895px) {

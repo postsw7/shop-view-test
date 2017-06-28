@@ -19,7 +19,7 @@ class ShopItemEntry extends Component {
 
   render() {
     return (
-      <div className="item-entry" data-id={this.props.item.id}>
+      <div className={!this.props.isEditing ? 'item-entry' : 'item-entry item-rattle'} data-id={this.props.item.id}>
         <img className= "item-picture" src={this.props.item.image} alt="룩핀 아이템"/>
         <img className="lookpin-payment" src={paymentImage} alt="룩핀 결제"/>
         <p className="item-title">
@@ -49,7 +49,8 @@ ShopItemEntry.propTypes = {
     date: PropTypes.string,
     isPinned: PropTypes.bool
   }).isRequired,
-  handleClickPin: PropTypes.func.isRequired
+  handleClickPin: PropTypes.func.isRequired,
+  isEditing: PropTypes.bool.isRequired
 };
 
 export default ShopItemEntry;

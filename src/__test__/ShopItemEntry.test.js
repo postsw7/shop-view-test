@@ -21,7 +21,8 @@ describe ('<ShopItemEntry />', () => {
       date: 'date',
       isPinned: false
     },
-    handleClickPin: sinon.spy()
+    handleClickPin: sinon.spy(),
+    isEditing: false
   };
 
   it ('should render without crashing', () => {

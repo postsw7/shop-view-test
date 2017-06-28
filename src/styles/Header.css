@@ -12,6 +12,11 @@
   display: inline-block;
 }
 
+.title h1:hover {
+  cursor: pointer;
+  animation: move 10s steps(1000) infinite;
+}
+
 .title .fa {
   float: right;
   line-height: 60px;
@@ -19,6 +24,7 @@
 
 .title .fa-check-circle {
   color: #A51C2F;
+  animation: fa-check-circle-spin infinite 20s linear;
 }
 
 .title .fa:hover {
@@ -41,10 +47,15 @@ header ul li {
   font-weight: 300;
   line-height: 40px;
   margin-left: 20px;
+  transition-property: color, background-color;
+  transition-duration: 1s;
+  transition-timing-function: ease-out;
 }
 
 header ul li:hover {
   cursor: pointer;
+  background-color: #A51C2F;
+  color: #fff;
 }
 
 header nav .search-item {
@@ -58,11 +69,12 @@ header nav .search-item {
 }
 
 header nav .search-item .fa {
-  margin-right: 5px;
+  margin: 0 5px;
 }
 
 header nav .search-item .fa:hover {
   cursor: pointer;
+  animation: fontbulger 1.5s infinite;
 }
 
 header nav .search-item input {
@@ -74,6 +86,7 @@ header nav .search-item input {
 
 header nav .search-item input:focus {
   outline-color: #939393;
+  animation: colorchange 3s infinite;
 }
 
 main .container {
@@ -83,6 +96,34 @@ main .container {
 
 .select-nav {
   color: #A51C2F;
+}
+
+@keyframes move {
+  0% { transform: translateX(0px) rotate(0deg); }
+  25% { transform: translateX(-200px) rotate(-360deg); }
+  50% { transform: translateX(0px) rotate(0deg); }
+  75% { transform: translateX(200px) rotate(360deg); }
+  100% { transform: translateX(0px) rotate(0deg); }
+}
+
+@keyframes fa-check-circle-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes fontbulger {
+  0%, 100% {
+    font-size: 22px;
+  }
+  50% {
+    font-size: 30px;
+  }
+}
+
+@keyframes colorchange {
+  0%   {outline-color: #939393;}
+  50%  {outline-color: #A51C2F;}
+  100% {outline-color: #0c1a2c;}
 }
 
 @media screen and (max-width: 730px) {

@@ -14,7 +14,8 @@ describe ('<Header />', () => {
 
   const props = {
     handleSortItems: sinon.spy(),
-    handleSearchItems: sinon.spy()
+    handleSearchItems: sinon.spy(),
+    handleEditItem: sinon.spy()
   };
 
   it ('should render without crashing', () => {
@@ -32,9 +33,9 @@ describe ('<Header />', () => {
     expect(wrapper.find('.container').length).toBe(1);
   });
 
-  it ('should render ul and four li elements', () => {
+  it ('should render ul and five li elements', () => {
     const wrapper = shallow(<Header {...props} />);
-    expect(wrapper.find('ul').children()).toHaveLength(4);
+    expect(wrapper.find('ul').children()).toHaveLength(5);
   });
 
   it ('should have `신상품` as a default value of selected nav element', () => {

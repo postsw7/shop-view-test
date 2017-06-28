@@ -17,7 +17,9 @@ describe ('<ShopItemList />', () => {
     sortFilter: '',
     searchValue: '',
     handleClickItem: sinon.spy(),
-    handleClickPin: sinon.spy()
+    handleClickPin: sinon.spy(),
+    handleSelectedEditItem: sinon.spy(),
+    isEditing: false
   };
 
   it ('should render without crashing', () => {
